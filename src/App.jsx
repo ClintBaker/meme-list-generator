@@ -4,37 +4,47 @@ import axios from "axios";
 import Meme from "./components/Meme";
 
 function App() {
+  // formData state
   const [formData, setFormData] = useState({
     topText: "",
     bottomText: "",
   });
 
-  const [allMemes, setAllMemes] = useState([
-    {
-      id: "252600902",
-      name: "Always Has Been",
-      url: "https://i.imgflip.com/46e43q.png",
-      width: 960,
-      height: 540,
-      box_count: 2,
-      captions: 166750,
-    },
-  ]);
+  // allMemes state
+  const [allMemes, setAllMemes] = useState([]);
 
+  // meme state
+  const [meme, setMeme] = useState({
+    id: "252600902",
+    name: "Always Has Been",
+    url: "https://i.imgflip.com/46e43q.png",
+    width: 960,
+    height: 540,
+    box_count: 2,
+    captions: 166750,
+  });
+
+  // on mount async get Memes which sets our allMemes state with data from API
   useEffect(() => {
     async function getMemes() {
       const res = await axios.get("https://api.imgflip.com/get_memes");
-      console.log(res.data.data.memes);
       setAllMemes(res.data.data.memes);
     }
 
     getMemes();
   }, []);
 
+  // handle form submit
   function handleSubmit(e) {
     e.preventDefault();
     // create new meme
     alert(formData.topText);
+  }
+
+  // handle click on change image button
+  function handleChangeImage() {
+    const random = Math.floor(Math.random() * 100);
+    setMeme(allMemes[random]);
   }
 
   return (
@@ -47,7 +57,11 @@ function App() {
         setFormData={setFormData}
         handleSubmit={handleSubmit}
       />
-      <Meme meme={allMemes[13]} formData={formData} />
+      <Meme
+        meme={meme}
+        formData={formData}
+        handleChangeImage={handleChangeImage}
+      />
     </>
   );
 }
