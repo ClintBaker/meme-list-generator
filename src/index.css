@@ -127,6 +127,34 @@ button:focus-visible {
   font-size: 2em;
 }
 
-.change--button {
-  margin-top: 20px;
+.meme-list--container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 35px;
+}
+
+.meme-list--break {
+  width: 600px;
+  border-top: 1px solid var(--light);
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.listed--head {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  justify-content: center;
+  align-items: center;
+}
+
+.listed--btn {
+  padding: 5px;
+  margin: 8px 3px;
+}
+
+.red {
+  background: red !important;
 }
