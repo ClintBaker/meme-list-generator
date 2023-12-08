@@ -36,9 +36,6 @@ function Meme({ meme, formData, handleChangeImage }) {
         <h2>{formData.topText}</h2>
         <h2>{formData.bottomText}</h2>
       </div>
-      <button className="change--button" onClick={handleChangeImage}>
-        Change image
-      </button>
     </div>
   );
 }

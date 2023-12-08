@@ -44,12 +44,13 @@ function App() {
   return (
     <>
       <nav className="nav">
-        <h1>Meme List Generator</h1>
+        <h1>👾 Meme List Generator</h1>
       </nav>
       <Form
         formData={formData}
         setFormData={setFormData}
         handleSubmit={handleSubmit}
+        handleChangeImage={handleChangeImage}
       />
       <Meme
         meme={meme}

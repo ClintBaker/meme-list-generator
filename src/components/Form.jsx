@@ -1,4 +1,4 @@
-function Form({ formData, setFormData, handleSubmit }) {
+function Form({ formData, setFormData, handleSubmit, handleChangeImage }) {
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -26,7 +26,16 @@ function Form({ formData, setFormData, handleSubmit }) {
             onChange={handleChange}
           />
         </div>
-        <button>Submit</button>
+        <div className="inputs">
+          <button
+            type="button"
+            className="form--btn"
+            onClick={handleChangeImage}
+          >
+            Change image 🖼️
+          </button>
+          <button className="form--btn">Submit ✅</button>
+        </div>
       </form>
     </div>
   );
