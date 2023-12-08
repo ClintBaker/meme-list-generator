@@ -14,21 +14,15 @@ function App() {
   const [allMemes, setAllMemes] = useState([]);
 
   // meme state
-  const [meme, setMeme] = useState({
-    id: "252600902",
-    name: "Always Has Been",
-    url: "https://i.imgflip.com/46e43q.png",
-    width: 960,
-    height: 540,
-    box_count: 2,
-    captions: 166750,
-  });
+  const [meme, setMeme] = useState({});
 
-  // on mount async get Memes which sets our allMemes state with data from API
+  // on mount get Memes which sets our allMemes state with data from API and setMeme for
+  //   random starter meme.
   useEffect(() => {
     async function getMemes() {
       const res = await axios.get("https://api.imgflip.com/get_memes");
       setAllMemes(res.data.data.memes);
+      setMeme(res.data.data.memes[Math.floor(Math.random() * 100)]);
     }
 
     getMemes();

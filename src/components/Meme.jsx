@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 function Meme({ meme, formData, handleChangeImage }) {
   // Define height and width
   const [dimensions, setDimensions] = useState({
-    height: "100px",
-    width: "100px",
+    height: "400px",
+    width: "400px",
   });
 
   //   Use an effect on meme state change that scales height and width based on maxHeight
@@ -12,10 +12,14 @@ function Meme({ meme, formData, handleChangeImage }) {
     const maxHeight = 400;
     if (meme.height > maxHeight) {
       let ratio = 1 - (meme.height - maxHeight) / meme.height;
-      console.log(meme.height);
       setDimensions({
         height: meme.height * ratio,
         width: meme.width * ratio,
+      });
+    } else {
+      setDimensions({
+        height: meme.height,
+        width: meme.width,
       });
     }
   }, [meme]);
@@ -32,7 +36,9 @@ function Meme({ meme, formData, handleChangeImage }) {
         <h2>{formData.topText}</h2>
         <h2>{formData.bottomText}</h2>
       </div>
-      <button onClick={handleChangeImage}>Change image</button>
+      <button className="change--button" onClick={handleChangeImage}>
+        Change image
+      </button>
     </div>
   );
 }
