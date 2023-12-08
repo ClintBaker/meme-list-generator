@@ -1,0 +1,16 @@
+1. A user will see a form with two inputs and a submit button.
+    - Inputs will be:
+        - Top text
+        - Bottom text
+
+2. A user will be able to see a preview of their meme
+
+3. A user will be able to add created memes to a list
+
+4. A user will be able to delete memes from the list
+
+5. A user will be able to edit an existing meme 
+
+Tips:
+    1. UUID generator package - https://www.npmjs.com/package/uuid
+    2. MEME API - "https://api.imgflip.com/get_memes"
