@@ -94,6 +94,25 @@ button:focus-visible {
   transition: border-color 0.25s;
 }
 
+.meme {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 1px solid #eaeaea;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.meme h2 {
+  text-shadow: 0 0 4px #000000;
+  padding: 15px;
+  text-align: center;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
