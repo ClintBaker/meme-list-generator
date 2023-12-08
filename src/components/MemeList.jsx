@@ -1,14 +1,15 @@
 import ListedMeme from "./ListedMeme";
 
-function MemeList({ memes, handleDelete }) {
+function MemeList({ memes, handleDelete, handleEditMeme }) {
   const renderMemes = memes.map((meme, i) => (
     <ListedMeme
-      index={i + 1}
+      index={i}
       key={meme.id}
       id={meme.id}
       meme={meme.meme}
       formData={{ topText: meme.topText, bottomText: meme.bottomText }}
       handleDelete={handleDelete}
+      handleEditMeme={handleEditMeme}
     />
   ));
   return (

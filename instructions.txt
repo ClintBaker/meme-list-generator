@@ -7,7 +7,7 @@
 
 3. [COMPLETE] A user will be able to add created memes to a list
 
-4. A user will be able to delete memes from the list
+4. [COMPLETE] A user will be able to delete memes from the list
 
 5. A user will be able to edit an existing meme 
 

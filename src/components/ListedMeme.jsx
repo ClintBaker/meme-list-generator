@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ListedForm from "./ListedForm";
 
 function ListedMeme({
   meme,
@@ -7,6 +8,7 @@ function ListedMeme({
   index,
   id,
   handleDelete,
+  handleEditMeme,
 }) {
   // Define height and width
   const [dimensions, setDimensions] = useState({
@@ -17,9 +19,15 @@ function ListedMeme({
   //   create edit state to dynamically render form
   const [edit, setEdit] = useState(false);
 
+  //   create form data state
+  const [listedFormData, setListedFormData] = useState({
+    topText: formData.topText,
+    bottomText: formData.bottomText,
+  });
+
   //   Use an effect on meme state change that scales height and width based on maxHeight
   useEffect(() => {
-    const maxHeight = 400;
+    const maxHeight = 350;
     if (meme.height > maxHeight) {
       let ratio = 1 - (meme.height - maxHeight) / meme.height;
       setDimensions({
@@ -40,18 +48,37 @@ function ListedMeme({
     handleDelete(id);
   }
 
+  //   Toggle edit
+  function toggleEdit() {
+    if (edit) {
+      // save the meme
+      handleEditMeme(id, listedFormData, index);
+
+      // toggle edit
+      setEdit((prevEdit) => !prevEdit);
+    } else {
+      setEdit((prevEdit) => !prevEdit);
+    }
+  }
+
   return (
     <div className="container">
       <div className="listed--head">
-        <h3>Meme {index}:</h3>
+        <h3>Meme {index + 1}:</h3>
         <div className="btns">
           <button onClick={handleDeleteLocal} className="listed--btn red">
             DELETE 🙅‍♀️
           </button>
-          <button onClick={handleDeleteLocal} className="listed--btn">
-            EDIT ✍️
+          <button onClick={toggleEdit} className="listed--btn">
+            {edit ? "Save ✅" : "EDIT ✍️"}
           </button>
         </div>
+        {edit && (
+          <ListedForm
+            formData={listedFormData}
+            setFormData={setListedFormData}
+          />
+        )}
       </div>
       <div
         className="meme"
@@ -61,8 +88,8 @@ function ListedMeme({
           backgroundImage: `url(${meme.url})`,
         }}
       >
-        <h2>{formData.topText}</h2>
-        <h2>{formData.bottomText}</h2>
+        <h2>{listedFormData.topText}</h2>
+        <h2>{listedFormData.bottomText}</h2>
       </div>
       <div
         style={{

@@ -68,6 +68,20 @@ function App() {
     });
   }
 
+  // handle edit meme
+  function handleEditMeme(id, listedFormData, index) {
+    // setMemeList with new data
+    setMemeList((prevMemeList) => {
+      let newMemeList = [...prevMemeList];
+      newMemeList[index] = {
+        ...newMemeList[index],
+        topText: listedFormData.topText,
+        bottomText: listedFormData.bottomText,
+      };
+      return newMemeList;
+    });
+  }
+
   return (
     <>
       <nav className="nav">
@@ -83,7 +97,11 @@ function App() {
         handleChangeImage={handleChangeImage}
       />
       <Meme meme={meme} formData={formData} />
-      <MemeList memes={memeList} handleDelete={handleDelete} />
+      <MemeList
+        memes={memeList}
+        handleDelete={handleDelete}
+        handleEditMeme={handleEditMeme}
+      />
     </>
   );
 }
