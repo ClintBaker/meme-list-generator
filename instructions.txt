@@ -9,7 +9,7 @@
 
 4. [COMPLETE] A user will be able to delete memes from the list
 
-5. A user will be able to edit an existing meme 
+5. [COMPLETE] A user will be able to edit an existing meme 
 
 Tips:
     1. UUID generator package - https://www.npmjs.com/package/uuid
