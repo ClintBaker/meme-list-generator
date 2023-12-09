@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
-import CreateForm from "./components/create-meme/CreateForm";
 import axios from "axios";
-import Meme from "./components/create-meme/Meme";
-import MemeList from "./components/meme-list/MemeList";
-// Import UUID for creating unique IDs
 import { v4 as uuidv4 } from "uuid";
+
+// Import components
+import MemeList from "./components/meme-list/MemeList";
 import Nav from "./components/general/Nav";
 import CreateMeme from "./components/create-meme/CreateMeme";
 import Footer from "./components/general/Footer";
