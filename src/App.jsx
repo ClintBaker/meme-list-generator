@@ -65,10 +65,9 @@ function App() {
   // handle delete meme from meme list
   function handleDelete(id) {
     // Update memeList state and remove the id
-    setMemeList((prevMemeList) => {
-      const newMemeList = prevMemeList.filter((meme) => meme.id !== id);
-      return newMemeList;
-    });
+    setMemeList((prevMemeList) =>
+      prevMemeList.filter((meme) => meme.id !== id)
+    );
   }
 
   // handle edit meme
