@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import ListedForm from "./ListedForm";
+import EditForm from "./EditForm";
 
-function ListedMeme({
+function MyMeme({
   meme,
   formData,
   handleChangeImage,
@@ -20,7 +20,7 @@ function ListedMeme({
   const [edit, setEdit] = useState(false);
 
   //   create form data state
-  const [listedFormData, setListedFormData] = useState({
+  const [editFormData, setEditFormData] = useState({
     topText: formData.topText,
     bottomText: formData.bottomText,
   });
@@ -52,7 +52,7 @@ function ListedMeme({
   function toggleEdit() {
     if (edit) {
       // save the meme
-      handleEditMeme(id, listedFormData, index);
+      handleEditMeme(id, editFormData, index);
 
       // toggle edit
       setEdit((prevEdit) => !prevEdit);
@@ -62,7 +62,7 @@ function ListedMeme({
   }
 
   return (
-    <div className="container">
+    <div className="my-meme--container container">
       <div className="listed--head">
         <h3>Meme {index + 1}:</h3>
         <div className="btns">
@@ -74,10 +74,7 @@ function ListedMeme({
           </button>
         </div>
         {edit && (
-          <ListedForm
-            formData={listedFormData}
-            setFormData={setListedFormData}
-          />
+          <EditForm formData={editFormData} setFormData={setEditFormData} />
         )}
       </div>
       <div
@@ -88,19 +85,11 @@ function ListedMeme({
           backgroundImage: `url(${meme.url})`,
         }}
       >
-        <h2>{listedFormData.topText}</h2>
-        <h2>{listedFormData.bottomText}</h2>
+        <h2>{editFormData.topText}</h2>
+        <h2>{editFormData.bottomText}</h2>
       </div>
-      <div
-        style={{
-          marginTop: "30px",
-          justifySelf: "center",
-          alignSelf: "center",
-        }}
-        className="meme-list--break"
-      ></div>
     </div>
   );
 }
 
-export default ListedMeme;
+export default MyMeme;

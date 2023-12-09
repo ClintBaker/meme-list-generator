@@ -1,4 +1,4 @@
-function ListedForm({ formData, setFormData }) {
+function EditForm({ formData, setFormData }) {
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -8,9 +8,9 @@ function ListedForm({ formData, setFormData }) {
   }
 
   return (
-    <div className="container">
+    <div className="container edit-container">
       <div className="form">
-        <div className="inputs">
+        <div className="inputs edit-form">
           <input
             className="input"
             placeholder="Top Text"
@@ -31,4 +31,4 @@ function ListedForm({ formData, setFormData }) {
   );
 }
 
-export default ListedForm;
+export default EditForm;

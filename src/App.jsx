@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import CreateForm from "./components/CreateForm";
+import CreateForm from "./components/create-meme/CreateForm";
 import axios from "axios";
-import MemeCreator from "./components/MemeCreator";
-import MemeList from "./components/MemeList";
+import Meme from "./components/create-meme/Meme";
+import MemeList from "./components/meme-list/MemeList";
 // Import UUID for creating unique IDs
 import { v4 as uuidv4 } from "uuid";
+import Nav from "./components/general/Nav";
+import CreateMeme from "./components/create-meme/CreateMeme";
+import Footer from "./components/general/Footer";
 
 function App() {
   // formData state
@@ -84,24 +87,20 @@ function App() {
 
   return (
     <>
-      <nav className="nav">
-        <h1>👾 Meme List Generator</h1>
-      </nav>
-      <h2 style={{ textAlign: "center", marginTop: "20px" }}>
-        Create Your Meme:
-      </h2>
-      <CreateForm
+      <Nav myMemes={memeList.length} />
+      <CreateMeme
         formData={formData}
         setFormData={setFormData}
         handleSubmit={handleSubmit}
         handleChangeImage={handleChangeImage}
+        meme={meme}
       />
-      <MemeCreator meme={meme} formData={formData} />
       <MemeList
         memes={memeList}
         handleDelete={handleDelete}
         handleEditMeme={handleEditMeme}
       />
+      <Footer />
     </>
   );
 }
