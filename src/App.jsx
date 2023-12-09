@@ -29,8 +29,9 @@ function App() {
   useEffect(() => {
     async function getMemes() {
       const res = await axios.get("https://api.imgflip.com/get_memes");
-      setAllMemes(res.data.data.memes);
-      setMeme(res.data.data.memes[Math.floor(Math.random() * 100)]);
+      const memesArray = res.data.data.memes;
+      setAllMemes(memesArray);
+      setMeme(memesArray[Math.floor(Math.random() * memesArray.length)]);
     }
 
     getMemes();
@@ -57,8 +58,8 @@ function App() {
 
   // handle click on change image button
   function handleChangeImage() {
-    const random = Math.floor(Math.random() * 100);
-    setMeme(allMemes[random]);
+    const randomIndex = Math.floor(Math.random() * allMemes.length);
+    setMeme(allMemes[randomIndex]);
   }
 
   // handle delete meme from meme list
