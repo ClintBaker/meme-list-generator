@@ -19,14 +19,12 @@ function MemeList({ memes, handleDelete, handleEditMeme }) {
         <div className="meme-list--break"></div>
         <h2 className="my-memes">My Memes:</h2>
         <p>Manage memes here.</p>
-        <div>{memes.length > 0 && renderMemes}</div>
-        <div>
-          {memes.length <= 0 && (
-            <div className="no-memes">
-              You don't currently have any memes. Create a meme to get started!
-            </div>
-          )}
-        </div>
+        {memes.length > 0 && renderMemes}
+        {memes.length <= 0 && (
+          <div className="no-memes">
+            You don't currently have any memes. Create a meme to get started!
+          </div>
+        )}
       </div>
     </>
   );
