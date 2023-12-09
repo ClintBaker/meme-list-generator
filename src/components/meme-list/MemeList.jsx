@@ -23,8 +23,7 @@ function MemeList({ memes, handleDelete, handleEditMeme }) {
         <div>
           {memes.length <= 0 && (
             <div className="no-memes">
-              "You don't currently have any memes. Create a meme to get
-              started!"
+              You don't currently have any memes. Create a meme to get started!
             </div>
           )}
         </div>
