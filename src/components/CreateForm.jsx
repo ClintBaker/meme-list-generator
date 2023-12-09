@@ -1,4 +1,9 @@
-function Form({ formData, setFormData, handleSubmit, handleChangeImage }) {
+function CreateForm({
+  formData,
+  setFormData,
+  handleSubmit,
+  handleChangeImage,
+}) {
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData((prevFormData) => ({
@@ -41,4 +46,4 @@ function Form({ formData, setFormData, handleSubmit, handleChangeImage }) {
   );
 }
 
-export default Form;
+export default CreateForm;

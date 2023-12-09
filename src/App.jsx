@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import Form from "./components/Form";
+import CreateForm from "./components/CreateForm";
 import axios from "axios";
-import Meme from "./components/Meme";
+import MemeCreator from "./components/MemeCreator";
 import MemeList from "./components/MemeList";
 // Import UUID for creating unique IDs
 import { v4 as uuidv4 } from "uuid";
@@ -90,13 +90,13 @@ function App() {
       <h2 style={{ textAlign: "center", marginTop: "20px" }}>
         Create Your Meme:
       </h2>
-      <Form
+      <CreateForm
         formData={formData}
         setFormData={setFormData}
         handleSubmit={handleSubmit}
         handleChangeImage={handleChangeImage}
       />
-      <Meme meme={meme} formData={formData} />
+      <MemeCreator meme={meme} formData={formData} />
       <MemeList
         memes={memeList}
         handleDelete={handleDelete}

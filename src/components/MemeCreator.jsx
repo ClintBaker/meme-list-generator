@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function Meme({ meme, formData, handleChangeImage }) {
+function MemeCreator({ meme, formData, handleChangeImage }) {
   // Define height and width
   const [dimensions, setDimensions] = useState({
     height: "400px",
@@ -40,4 +40,4 @@ function Meme({ meme, formData, handleChangeImage }) {
   );
 }
 
-export default Meme;
+export default MemeCreator;
